@@ -2,6 +2,7 @@ const catalogo = require('./database/catalogo.json')
 const mostrarFilmes =require('./functions/mostrarFilmes')
 const buscarFilme = require('./functions/buscarFilme')
 const porEmCartaz =require('./functions/porFilmeEmCartaz')
+const tirarDeCartaz = require('./functions/tirarFilmeEmCartaz')
 
 
 //capturar dados usuario pelo terminal
@@ -21,17 +22,16 @@ switch(capDados){
     break;
     case 'adcionar':
 
-
     break;
+
     case 'porEmCartaz':
         porEmCartaz(capCodigo)
-        console.table(catalogo)
     break;
+
     case 'tirarDeCartaz':
-        
+        tirarDeCartaz(capCodigo)
     break;
 
     default:
         console.error('Comando nao encontrado')
-        console.log('comandos válidos: \n node index.js mostrarFilmes \n node index.js buscarFilme codigo')
 }
