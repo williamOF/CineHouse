@@ -1,9 +1,11 @@
 const catalogo = require('./database/catalogo.json')
-const mostrarFilmes =require('./functions/mostrarFilmes')
+const mostrarFilmes = require('./functions/mostrarFilmes')
 const buscarFilme = require('./functions/buscarFilme')
-const porEmCartaz =require('./functions/porFilmeEmCartaz')
+const porEmCartaz = require('./functions/porFilmeEmCartaz')
 const tirarDeCartaz = require('./functions/tirarFilmeEmCartaz')
+const addFilme = require('./functions/addFilme')
 
+//---- PARA RECEBER INSTRUÇÕES DE USO DIGITE -> AJUDA NO TERMINAL -----
 
 //capturar dados usuario pelo terminal
 
@@ -20,10 +22,6 @@ switch(capDados){
         let filmeBuscado = buscarFilme(capCodigo)
         console.table(filmeBuscado)
     break;
-    case 'adcionar':
-
-    break;
-
     case 'porEmCartaz':
         porEmCartaz(capCodigo)
     break;
@@ -33,5 +31,6 @@ switch(capDados){
     break;
 
     default:
-        console.error('Comando nao encontrado')
+  
+        addFilme(capDados)
 }

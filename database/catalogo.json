@@ -1,50 +1,73 @@
 [
     {
-        "codigo": "225",
-        "anoDeLancamento": "2015",
-        "titulo": "O Escorpião Rei 4 - na busca pelo poder",
-        "duracao": "104",
-        "emCartaz": "true",
+        "codigo": 1,
+        "anoDeLancamento": 2022,
+        "titulo": "Top Gun",
         "atores": [
-            "Victor Webster",
-            "Ellem Hollman",
-            "Barry Bostwick"
-        ]
+            "Tom Cruise",
+            "Jennifer Connelly"
+        ],
+        "duracao": 131,
+        "emCartaz": true
     },
     {
-        "codigo": "226",
-        "anoDeLancamento": "2016",
-        "titulo": "O Escorpião Rei 4 - na busca pelo poder",
-        "duracao": "104",
-        "emCartaz": "true",
+        "codigo": 2,
+        "anoDeLancamento": 2009,
+        "titulo": "Avatar",
         "atores": [
-            "Victor Webster",
-            "Ellem Hollman",
-            "Barry Bostwick"
-        ]
+            "Zöe Saldaña",
+            "Sam Worthington",
+            "Michelle Rodriguez",
+            "Sigourney Weaver"
+        ],
+        "duracao": 160,
+        "emCartaz": false
     },
     {
-        "codigo": "226",
-        "anoDeLancamento": "2016",
-        "titulo": "O Escorpião Rei 4 - na busca pelo poder",
-        "duracao": "104",
-        "emCartaz": "true",
+        "codigo": 3,
+        "titulo": "Dune",
+        "duracao": 245,
         "atores": [
-            "Victor Webster",
-            "Ellem Hollman",
-            "Barry Bostwick"
-        ]
+            "Timothée Chalamet",
+            "Zendaya"
+        ],
+        "anoDeLancamento": 2021,
+        "emCartaz": false
     },
     {
-        "codigo": "42",
+        "codigo": 4,
+        "titulo": "Doutor Estranho no Multiverso da Loucura",
+        "duração": 120,
+        "atores": [
+            "Benedict Cumberbatch",
+            "Elizabeth Olsen",
+            "Chiwetel Ejiofor"
+        ],
+        "anoDeLançamento": 2022,
+        "emCartaz": true
+    },
+    {
+        "codigo": 5,
+        "titulo": "Vingadores Ultimato",
+        "duração": 180,
+        "atores": [
+            "Robert Downey Jr.",
+            "Chris Evans",
+            "Mark Ruffalo"
+        ],
+        "anoDeLançamento": 2019,
+        "emCartaz": false
+    },
+    {
+        "codigo": "350",
         "anoDeLancamento": "2010",
-        "titulo": "Fúria De Titãns",
+        "titulo": "Fúria de Titãs",
         "duracao": "106",
         "emCartaz": "true",
         "atores": [
             "Sam Worthington",
             "Liam Neeson",
-            "Ralph Fiennes"
+            "Ralph Fennes"
         ]
     }
 ]
