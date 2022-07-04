@@ -15,6 +15,8 @@ if(prop == 'help'){
     addTitulo(filme)
     addDuracao(filme)
     addCartaz(filme)
+    addAtores(filme)
+   
 }
 
 
@@ -78,3 +80,19 @@ function addCartaz(gerarCartaz){
     }
 }
 
+function addAtores (gerarTitulo){
+
+    let array = []
+
+    for (let i = 2 ; i<process.argv.length ; i++){
+        let par = i % 2 ==0
+        if(par){
+          let nomeSobrenome = process.argv[i] + ' ' + process.argv[i+1]
+         if(nomeSobrenome != undefined){
+            array.push(nomeSobrenome)
+         }
+        }
+    }
+    console.log(array)
+    
+ }
