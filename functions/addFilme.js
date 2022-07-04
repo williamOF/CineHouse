@@ -1,98 +1,59 @@
 const buscarFilme = require('./buscarFilme')
-const preSave = require('./preSave')
-const filme = require('../database/teste.json')
+const salvarF = require('./salvarF')
+const salvarNoCatalogo = require('./salvarFilme')
+const novoFilme = require('../database/novoFilme.json')
+const catalogo = require('../database/catalogo.json')
+//exports outras funçoes para adcionar elementos no objeto
 
+const addAtores = require('./addAtores')
+const addCodigo = require('./addCodigo')
+const addTitulo = require('./addTitulo')
 
-let prop = process.argv[2]
-
-// help menu 
-
-if(prop == 'help'){
-    console.log('Lista de Comandos : \n codigo 999 \n ano 9999 \n titulo nomeDoFilmeAqui \n duracao 120 \n cartaz true or false \n atores nomeutores')
-}else{
-    addCodigo(filme)
-    addAnoLancamento(filme)
-    addTitulo(filme)
-    addDuracao(filme)
-    addCartaz(filme)
-    addAtores(filme)
-   
-}
-
-
-
-
-
-function addCodigo(gerarFilme){
-    let lerCod = process.argv[3]
-    if(prop == 'codigo'){
-        let resultadoPesquisa = buscarFilme(lerCod)
-        if(resultadoPesquisa == undefined ){
-            gerarFilme.codigo = lerCod
-            preSave(gerarFilme)
-        }else{
-            console.error('este codigo já existe porvafor tente outro')
-        }
-    }
-}
+let termnalPoss2 = process.argv[2]
 
 function addAnoLancamento(gerarAno){
-    let lerVal = process.argv[3]
-    if(prop == 'ano'){
-        gerarAno.anoDeLancamento = lerVal
-        preSave(gerarAno)
-    }
-}
-function addTitulo (gerarTitulo){
-    let lerVal = process.argv[3]
-    if(prop == 'titulo'){
-
-        let arrNomes = []
-
-        for(let i in lerVal){
-           if(i > 2){
-            let nomes = process.argv[i]
-            if(nomes != undefined){
-                arrNomes.push(nomes)
-            }
-           }
-        }
-
-        let titulo = arrNomes.toString()
-        let titulof =  titulo.replace(/,/g," ")
-
-        gerarTitulo.titulo = titulof
-        preSave(gerarTitulo)
+    if(termnalPoss2 == 'ano'){
+        gerarAno.anoDeLancamento = process.argv[3]
+        salvarF(gerarAno)
     }
 }
 function addDuracao(gerarDuracao){
-    let lerVal = process.argv[3]
-    if(prop == 'duracao'){
-        gerarDuracao.duracao = lerVal
-        preSave(gerarDuracao)
+    if(termnalPoss2 == 'duracao'){
+        gerarDuracao.duracao = process.argv[3]
+        salvarF(gerarDuracao)
     }
 }
 function addCartaz(gerarCartaz){
-    let lerVal = process.argv[3]
-    if(prop == 'cartaz'){
-        gerarCartaz.emCartaz = lerVal
-        preSave (gerarCartaz)
+    if(termnalPoss2 == 'cartaz'){
+        gerarCartaz.emCartaz = process.argv[3]
+        salvarF (gerarCartaz)
     }
 }
+function salvarTudo(filme){
+    if(termnalPoss2 == 'salvar'){
 
-function addAtores (gerarTitulo){
-
-    let array = []
-
-    for (let i = 2 ; i<process.argv.length ; i++){
-        let par = i % 2 ==0
-        if(par){
-          let nomeSobrenome = process.argv[i] + ' ' + process.argv[i+1]
-         if(nomeSobrenome != undefined){
-            array.push(nomeSobrenome)
-         }
+        let novoFilmeCodigo = novoFilme.codigo
+        let retornoBusca =  buscarFilme(novoFilmeCodigo)
+        
+        if(retornoBusca == undefined){
+            catalogo.push(novoFilme)
+            salvarNoCatalogo(catalogo)
+        }else{
+            console.error('[ERRO_201] Este Filme já existe em catálogo ou o código informado já foi cadastrado!')
         }
     }
-    console.log(array)
-    
- }
+
+}
+
+// mini menu execução
+let menuAddFilme = (dado)=>{
+    addAnoLancamento(novoFilme)
+    addDuracao(novoFilme)
+    addCartaz(novoFilme)
+    addAtores(dado)
+    addCodigo(dado)
+    addTitulo(dado)
+    salvarTudo(novoFilme)
+    //antes de salvar comparar os filmes dos 2 json por codigo caso seja igual nao salvar 
+}
+menuAddFilme(termnalPoss2)
